@@ -3,6 +3,19 @@
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 
+
+</div>
+
+<div>
+  <h2>Coments:¨</h2>
+  {{#each comments}}
+  <div>
+    <h3>{{commentText}}</h3>
+    <h5>{{date_created}}</h5>
+    </div>
+  {{/each}}
+</div>
+
   <p>
     <textarea
       name=""
@@ -13,6 +26,8 @@
     ></textarea>
     <button class="btn btn-primary commentBtn">Leave Comment!</button>
   </p>
-</div>
+
+
+
 
 <script src="/js/comment.js"></script>

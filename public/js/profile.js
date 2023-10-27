@@ -1,5 +1,5 @@
 const createForm = document.querySelector('.createBtn');  
-
+const deleteBlog = document.querySelector('.btn-danger');
 
   const newFormHandler = async (event) => {
   event.preventDefault();
@@ -18,7 +18,7 @@ const createForm = document.querySelector('.createBtn');
     });
     console.log(response);
     if (response.ok) {
-      //document.location.replace('/profile');
+      document.location.replace('/profile');
     } else {
       alert('Failed to create project');
     }
@@ -29,10 +29,10 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/projects/${id}`, {
+    const response = await fetch(`/api/blogs/${id}`, {
       method: 'DELETE',
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.replace('/profile');
     } else {
@@ -43,3 +43,5 @@ const delButtonHandler = async (event) => {
 
 
 createForm.addEventListener('click', newFormHandler);
+
+deleteBlog.addEventListener('click', delButtonHandler);
